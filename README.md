@@ -36,3 +36,13 @@
   8.1 使用get:@GetMapping("/say")
   8.2 使用post:@PostMapping("/say")
   8.3 同时使用post和get:@RequestMapping("/say") 此种方式尽量不用
+
+9.数据库
+  9.1 mysql
+  9.2 jpa
+  
+10.四个接口 GET POST PUT
+
+11.事务
+  11.1 事务操作一般都放到service中
+  11.2 InnoDB支持事务操作，Myisam不支持事务操作
