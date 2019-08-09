@@ -39,7 +39,8 @@
 
 9.数据库
   9.1 mysql
-  9.2 jpa
+  9.2 Spring-Data-Jpa 只需要extends JpaRepository
+  9.3 三个数据库操作方法 save() findById() findAll()
   
 10.四个接口 GET POST PUT
 
