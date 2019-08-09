@@ -1,6 +1,7 @@
 #spring boot-luckymoney
 
 注意事项：
+
 1.配置文件application.yml类似树形文件，用格式将地址分开，在其中写配置时，记得空一格。
 
 2.yml配置
