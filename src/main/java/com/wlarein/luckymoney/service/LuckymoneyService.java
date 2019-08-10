@@ -1,11 +1,14 @@
 package com.wlarein.luckymoney.service;
 
 import com.wlarein.luckymoney.domain.Luckymoney;
+import com.wlarein.luckymoney.exception.MoneyException;
 import com.wlarein.luckymoney.repository.LuckymoneyRepository;
+import enums.ResultEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.math.BigDecimal;
 
 @Service
@@ -28,5 +31,19 @@ public class LuckymoneyService {
         luckymoney2.setProducer("郑嘉");
         luckymoney2.setMoney(new BigDecimal("1314"));
         repository.save(luckymoney2);
+    }
+
+    public void getMoney(Integer id) throws Exception{
+        Luckymoney luckymoney = repository.findById(id).get();
+        BigDecimal money = luckymoney.getMoney();
+        if(money.compareTo(new BigDecimal("200"))==-1){
+            // 返回 小红包
+            throw new MoneyException(ResultEnum.LittleMoney);
+        }
+        else if(money.compareTo(new BigDecimal("500"))==-1){
+            // 返回 大红包
+            throw new MoneyException(ResultEnum.BigMoney);
+        }
+
     }
 }

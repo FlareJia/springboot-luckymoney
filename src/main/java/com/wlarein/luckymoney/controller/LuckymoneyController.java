@@ -2,8 +2,10 @@ package com.wlarein.luckymoney.controller;
 
 
 import com.wlarein.luckymoney.domain.Luckymoney;
+import com.wlarein.luckymoney.domain.Result;
 import com.wlarein.luckymoney.repository.LuckymoneyRepository;
 import com.wlarein.luckymoney.service.LuckymoneyService;
+import com.wlarein.luckymoney.utils.ResultUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,17 +41,21 @@ public class LuckymoneyController {
      */
     @PostMapping("/luckymoneys")
 //  public Luckymoney create(@RequestParam("producer") String producer, @RequestParam("money") BigDecimal money){
-    public Luckymoney create(@Valid Luckymoney luckymoney, BindingResult bindingResult){
+    public Result<Luckymoney> create(@Valid Luckymoney luckymoney, BindingResult bindingResult){
 //        luckymoney.setProducer(producer);
 //        luckymoney.setMoney(money);
 
         if(bindingResult.hasErrors()){
-            logger.info(bindingResult.getFieldError().getDefaultMessage());
+            //logger.info(bindingResult.getFieldError().getDefaultMessage());
+            //return null;
+            //return ResultUtil.error(1, bindingResult.getFieldError().getDefaultMessage());
             return null;
         }
         luckymoney.setProducer(luckymoney.getProducer());
         luckymoney.setMoney(luckymoney.getMoney());
-        return repository.save(luckymoney);
+
+        //return repository.save(luckymoney);
+        return ResultUtil.success(repository.save(luckymoney));
     }
 
     /**
@@ -77,5 +83,10 @@ public class LuckymoneyController {
     @PostMapping("/luckymoneys/two")
     public void createTwo(){
         service.createTwo();
+    }
+
+    @GetMapping("/luckymoneys/getMoney/{id}")
+    public void getMoney(@PathVariable("id") Integer id) throws Exception{
+        service.getMoney(id);
     }
 }

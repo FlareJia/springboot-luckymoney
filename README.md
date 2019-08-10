@@ -70,4 +70,8 @@ WEB进阶：
       第三步添加logger来打印日志
   
 3.统一异常处理
+  3.1 异常返回格式统一为json
+  3.2 捕获异常，拿到想要的信息，对它进行封装，再返回给浏览器
+  3.3 继承RuntimeException是因为spring对Exception不会事务回滚，对RuntimeException会事务回滚 
+  3.4 使用枚举统一管理errorCode和errorMessage
 4.单元测试
