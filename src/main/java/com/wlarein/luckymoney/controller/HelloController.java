@@ -1,11 +1,8 @@
-package com.wlarein.luckymoney;
+package com.wlarein.luckymoney.controller;
 
+import com.wlarein.luckymoney.properties.LimitConfig;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import java.math.BigDecimal;
 
 @RestController
 @RequestMapping("/hello")

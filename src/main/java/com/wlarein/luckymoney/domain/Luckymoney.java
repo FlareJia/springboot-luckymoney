@@ -1,8 +1,9 @@
-package com.wlarein.luckymoney;
+package com.wlarein.luckymoney.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
 import java.math.BigDecimal;
 
 @Entity
@@ -10,7 +11,10 @@ public class Luckymoney {
     @Id
     @GeneratedValue
     private Integer id;
+
+    @Min(value = 10, message = "红包少于10元不准发")
     private BigDecimal money;
+
     private String producer;
     private String consumer;
 
@@ -47,5 +51,15 @@ public class Luckymoney {
 
     public void setConsumer(String consumer) {
         this.consumer = consumer;
+    }
+
+    @Override
+    public String toString() {
+        return "Luckymoney{" +
+                "id=" + id +
+                ", money=" + money +
+                ", producer='" + producer + '\'' +
+                ", consumer='" + consumer + '\'' +
+                '}';
     }
 }

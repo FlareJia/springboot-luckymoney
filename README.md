@@ -47,3 +47,27 @@
 11.事务
   11.1 事务操作一般都放到service中
   11.2 InnoDB支持事务操作，Myisam不支持事务操作
+  
+
+WEB进阶：
+
+1.使用@Valid表单验证
+  1.1 使用@Valid和@Min限制发红包钱数大于等于10
+  1.2 使用BindingResult来返回验证结果
+  
+2.使用AOP处理请求
+  2.1 AOP是一种编程范式，与语言无关，是一种程序设计思想 
+    面向切面AOP：Aspect Oriented Programming 
+    面向对象OOP：Object Oriented Programming
+    面向过程POP：Prodcure Oriented Programming
+    
+    收到HttpRequest请求->记录请求   ->处理网络请求->生成HttpResponse    ->记录回复
+    收到数据库操作请求->记录请求      ->增删改查->生成处理结果            ->记录回复
+    
+    可以将上述的操作切成三部分
+  2.2 第一步添加依赖spring-boot-starter-aop
+      第二步添加aspect类，添加@Aspect和@Compenent注解，利用@Pointcut、@Before或@After之类
+      第三步添加logger来打印日志
+  
+3.统一异常处理
+4.单元测试

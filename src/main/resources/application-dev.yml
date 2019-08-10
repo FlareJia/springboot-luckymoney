@@ -4,7 +4,7 @@ server:
     context-path: /luckymoney
 
 limit:
-  minMoney: 0.01
+  minMoney: 10
   maxMoney: 9999
   description: 最少要发${limit.minMoney}元,最多要发${limit.maxMoney}元
 spring:

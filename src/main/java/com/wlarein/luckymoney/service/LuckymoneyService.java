@@ -1,5 +1,7 @@
-package com.wlarein.luckymoney;
+package com.wlarein.luckymoney.service;
 
+import com.wlarein.luckymoney.domain.Luckymoney;
+import com.wlarein.luckymoney.repository.LuckymoneyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,4 +1,4 @@
-package com.wlarein.luckymoney;
+package com.wlarein.luckymoney.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
