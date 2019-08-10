@@ -74,4 +74,12 @@ WEB进阶：
   3.2 捕获异常，拿到想要的信息，对它进行封装，再返回给浏览器
   3.3 继承RuntimeException是因为spring对Exception不会事务回滚，对RuntimeException会事务回滚 
   3.4 使用枚举统一管理errorCode和errorMessage
+  
 4.单元测试
+  4.1 测试Service
+    @RunWith注解表示我们要在测试环境里面跑，底层是junit
+    @SpringBootTest表示将启动整个springboot工程
+  4.2 测试API
+    使用MockMvc来进行API测试
+    在mvn clean package用打包时，会对我们的测试用力进行测试
+    在打包的时候想跳过测试，用命令mvn clean package -Dmaven.test.skip=true

@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.criteria.CriteriaBuilder;
+
 import java.math.BigDecimal;
 
 @Service
@@ -45,5 +45,14 @@ public class LuckymoneyService {
             throw new MoneyException(ResultEnum.BigMoney);
         }
 
+    }
+
+    /**
+     * 通过id查询一个红包
+     * @param id
+     * @return
+     */
+    public Luckymoney findOne(Integer id){
+        return repository.findById(id).get();
     }
 }
